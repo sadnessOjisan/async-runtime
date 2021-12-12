@@ -1,0 +1,12 @@
+[package]
+name = "async-oruntime"
+version = "0.1.0"
+edition = "2021"
+link = "test"
+build = "build.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[build-dependencies]
+cc = { version = "1.0", features = ["parallel"] }
+
