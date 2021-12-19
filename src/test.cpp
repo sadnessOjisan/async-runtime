@@ -1,9 +1,16 @@
 #include <iostream>
+#include <semaphore.h>
+#include <cstddef>
 #include"test.h"
 
-using namespace std;
-
 int hello_world() {
-    cout << "Hello worldddd." << endl;
+    std::cout << "Hello worldddd." << std::endl;
     return 0;
 }
+
+class CountingSemaphore {
+    public: 
+	CountingSemaphore(std::ptrdiff_t desired);
+	void acquire();
+	void release();
+};
