@@ -1,25 +1,23 @@
 // Q: class の FFI
 
-#[link(name = "test", kind = "static")]
+#[link(name = "my_semaphore", kind = "static")]
 extern "C" {
-    fn hello_world();
-}
-
-struct Semaphore {
-
-}
-
-impl Semaphore {
-    fn aquire(){
-
-    }
-    fn relase(){
-
-    }
+    fn acquire();
+    fn try_acquire() -> bool;
+    fn release();
 }
 
 fn main() {
     unsafe {
-        hello_world();
+        let is_ok = try_acquire();
     }
+
+    // guard: 同時に操作されているかのチェック
+    // token: リソースのチェック
+    // チェックを通すとバッファから返す、通らなかったらNone
+    // レシーバのループで
+    // consume: binary semaphore, producer: semaphore
+    // mpsc の consume時にtry_acquireでチェック
+
 }
+

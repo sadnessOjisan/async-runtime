@@ -1,16 +1,7 @@
 #include <semaphore>
 #include <cstddef>
 #include <limits>
-
-class CountingSemaphore {
-    public: 
-	explicit CountingSemaphore(std::ptrdiff_t desired): semaphore(desired){}
-	auto acquire() -> void;
-	auto release() -> void;
-
-	private:
-	  std::counting_semaphore<std::numeric_limits<std::ptrdiff_t>::max()> semaphore;
-};
+#include "my_semaphore.h"
 
 CountingSemaphore::CountingSemaphore(std::ptrdiff_t desired):semaphore(desired){
 }
@@ -22,6 +13,10 @@ void CountingSemaphore::acquire(){
 
 void CountingSemaphore::release(){
 	this->semaphore.release();
+}
+
+bool CountingSemaphore::try_acquire(){
+	return this->semaphore.try_acquire();
 }
 
 void acquire(){}
