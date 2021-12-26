@@ -1,5 +1,5 @@
 [package]
-name = "async-oruntime"
+name = "async-runtime"
 version = "0.1.0"
 edition = "2021"
 link = "test"

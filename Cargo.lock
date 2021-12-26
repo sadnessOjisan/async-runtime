@@ -3,7 +3,7 @@
 version = 3
 
 [[package]]
-name = "async-oruntime"
+name = "async-runtime"
 version = "0.1.0"
 dependencies = [
  "cc",
